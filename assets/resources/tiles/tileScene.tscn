@@ -1,0 +1,164 @@
+[gd_scene load_steps=54 format=3 uid="uid://ccr6fal70wueg"]
+
+[ext_resource type="PackedScene" uid="uid://cxp8cagoro68b" path="res://assets/GLTF format/world/block.glb" id="1_wklhx"]
+[ext_resource type="PackedScene" uid="uid://c33wj41ejiddd" path="res://assets/GLTF format/world/blockCliff.glb" id="2_gljsl"]
+[ext_resource type="PackedScene" uid="uid://b2cnelin7ndjf" path="res://assets/GLTF format/world/blockCliffCorner.glb" id="3_iw77j"]
+[ext_resource type="PackedScene" uid="uid://csay2ekhqkpip" path="res://assets/GLTF format/world/blockCornerLarge.glb" id="4_dqpmj"]
+[ext_resource type="PackedScene" uid="uid://cbjhqp8llh7fl" path="res://assets/GLTF format/world/blockCornerSmall.glb" id="5_0077r"]
+[ext_resource type="PackedScene" uid="uid://ng5r0qu6dcvu" path="res://assets/GLTF format/world/blockCurve.glb" id="6_qavjo"]
+[ext_resource type="PackedScene" uid="uid://bq266trnt3y3v" path="res://assets/GLTF format/world/blockCurveHalf.glb" id="7_wrynv"]
+[ext_resource type="PackedScene" uid="uid://b7tyqk82fjepx" path="res://assets/GLTF format/world/blockCurveLow.glb" id="8_li870"]
+[ext_resource type="PackedScene" uid="uid://bmetgaacur273" path="res://assets/GLTF format/world/blockDirt.glb" id="9_rrrrc"]
+[ext_resource type="PackedScene" uid="uid://c6p5wep3bt1x6" path="res://assets/GLTF format/world/blockDirtHalf.glb" id="10_02fdp"]
+[ext_resource type="PackedScene" uid="uid://ibsc2b1w6to6" path="res://assets/GLTF format/world/blockDirtRamp.glb" id="11_ut68g"]
+[ext_resource type="PackedScene" uid="uid://bf6o1p62qkrvl" path="res://assets/GLTF format/world/blockDirtRampHalf.glb" id="12_mpr8g"]
+[ext_resource type="PackedScene" uid="uid://hdx1uq2c4ci4" path="res://assets/GLTF format/world/blockEnd.glb" id="13_y2xcw"]
+[ext_resource type="PackedScene" uid="uid://d217j60y18m7o" path="res://assets/GLTF format/world/blockHalf.glb" id="14_wffsx"]
+[ext_resource type="PackedScene" uid="uid://b81etyp75fauj" path="res://assets/GLTF format/world/blockHexagon.glb" id="15_mjjqf"]
+[ext_resource type="PackedScene" uid="uid://cx5oevo2vho8g" path="res://assets/GLTF format/world/blockHexagonLow.glb" id="16_ma2ps"]
+[ext_resource type="PackedScene" uid="uid://cknmd6ko37gsa" path="res://assets/GLTF format/world/blockLarge.glb" id="17_vl537"]
+[ext_resource type="PackedScene" uid="uid://bvbum757c4ifx" path="res://assets/GLTF format/world/blockLevel.glb" id="18_dxa7q"]
+[ext_resource type="PackedScene" uid="uid://bjowlwky5wett" path="res://assets/GLTF format/world/blockLong.glb" id="19_gfbjr"]
+[ext_resource type="PackedScene" uid="uid://htok410g0mfp" path="res://assets/GLTF format/world/blockMoving.glb" id="20_mcosf"]
+[ext_resource type="PackedScene" uid="uid://bw0nj418s6b3t" path="res://assets/GLTF format/world/blockMovingBlue.glb" id="21_t1h8l"]
+[ext_resource type="PackedScene" uid="uid://oaj0h26q8nt3" path="res://assets/GLTF format/world/blockMovingLarge.glb" id="22_rf6ei"]
+[ext_resource type="PackedScene" uid="uid://dwiqt443s84ak" path="res://assets/GLTF format/world/blockQuarter.glb" id="23_vidli"]
+[ext_resource type="PackedScene" uid="uid://3myyimwr2hd7" path="res://assets/GLTF format/world/blockRounded.glb" id="24_y1y8x"]
+[ext_resource type="PackedScene" uid="uid://crptt3qkxo215" path="res://assets/GLTF format/world/blockRoundedLarge.glb" id="25_najw8"]
+[ext_resource type="PackedScene" uid="uid://do7qsbhdv3bb2" path="res://assets/GLTF format/world/blockRoundedLong.glb" id="26_v2mwy"]
+[ext_resource type="PackedScene" uid="uid://cjefrdbcyqjoc" path="res://assets/GLTF format/world/blockRoundedLow.glb" id="27_xcqwg"]
+[ext_resource type="PackedScene" uid="uid://dtaiepsr6bo6x" path="res://assets/GLTF format/world/blockRoundedLowLong.glb" id="28_wistr"]
+[ext_resource type="PackedScene" uid="uid://dfkubophdlie6" path="res://assets/GLTF format/world/blockSlope.glb" id="29_ta5eb"]
+[ext_resource type="PackedScene" uid="uid://dbgy0jvirpold" path="res://assets/GLTF format/world/blockSlopeHalf.glb" id="30_g5v3x"]
+[ext_resource type="PackedScene" uid="uid://b48h3fks6h267" path="res://assets/GLTF format/world/blockSnow.glb" id="31_5g01n"]
+[ext_resource type="PackedScene" uid="uid://bglyy023mdb3x" path="res://assets/GLTF format/world/blockSnowCliff.glb" id="32_bjhyc"]
+[ext_resource type="PackedScene" uid="uid://c5ujeujjq66w2" path="res://assets/GLTF format/world/blockSnowCliffCorner.glb" id="33_iss7u"]
+[ext_resource type="PackedScene" uid="uid://cnbupfdmond38" path="res://assets/GLTF format/world/blockSnowCornerLarge.glb" id="34_fqbma"]
+[ext_resource type="PackedScene" uid="uid://domcdganrb34m" path="res://assets/GLTF format/world/blockSnowCornerSmall.glb" id="35_ffwqm"]
+[ext_resource type="PackedScene" uid="uid://byhrwudp751lb" path="res://assets/GLTF format/world/blockSnowCurve.glb" id="36_sutr1"]
+[ext_resource type="PackedScene" uid="uid://do36aeg8vl4vy" path="res://assets/GLTF format/world/blockSnowCurveHalf.glb" id="37_0fm0s"]
+[ext_resource type="PackedScene" uid="uid://cf1r2p0ww26n7" path="res://assets/GLTF format/world/blockSnowCurveLow.glb" id="38_40b6k"]
+[ext_resource type="PackedScene" uid="uid://j30m3d3tw2ug" path="res://assets/GLTF format/world/blockSnowEnd.glb" id="39_wy2xm"]
+[ext_resource type="PackedScene" uid="uid://5igk33b0622c" path="res://assets/GLTF format/world/blockSnowHalf.glb" id="40_21krh"]
+[ext_resource type="PackedScene" uid="uid://cvpffth2vwdxx" path="res://assets/GLTF format/world/blockSnowHexagon.glb" id="41_la8ak"]
+[ext_resource type="PackedScene" uid="uid://rjb62jbnyr7" path="res://assets/GLTF format/world/blockSnowHexagonLow.glb" id="42_ieuxq"]
+[ext_resource type="PackedScene" uid="uid://c8faoke4v8v4e" path="res://assets/GLTF format/world/blockSnowLarge.glb" id="43_vtk0u"]
+[ext_resource type="PackedScene" uid="uid://dobtm1lmj1kls" path="res://assets/GLTF format/world/blockSnowLevel.glb" id="44_2pqbm"]
+[ext_resource type="PackedScene" uid="uid://3fua6bjtf27c" path="res://assets/GLTF format/world/blockSnowLong.glb" id="45_k36g1"]
+[ext_resource type="PackedScene" uid="uid://bgqbq7yum522u" path="res://assets/GLTF format/world/blockSnowQuarter.glb" id="46_r4hln"]
+[ext_resource type="PackedScene" uid="uid://cbiuqc4b4v2tl" path="res://assets/GLTF format/world/blockSnowRounded.glb" id="47_ni65i"]
+[ext_resource type="PackedScene" uid="uid://c77m7vylsdlij" path="res://assets/GLTF format/world/blockSnowRoundedLarge.glb" id="48_pfjdw"]
+[ext_resource type="PackedScene" uid="uid://dq1bk6lmku18t" path="res://assets/GLTF format/world/blockSnowRoundedLong.glb" id="49_7sjuf"]
+[ext_resource type="PackedScene" uid="uid://bpma1y207s1h7" path="res://assets/GLTF format/world/blockSnowRoundedLow.glb" id="50_vubjd"]
+[ext_resource type="PackedScene" uid="uid://2ubl8v0dvsc1" path="res://assets/GLTF format/world/blockSnowRoundedLowLong.glb" id="51_s2rdf"]
+[ext_resource type="PackedScene" uid="uid://bdnxc2v6jn8b" path="res://assets/GLTF format/world/blockSnowSlope.glb" id="52_12swy"]
+[ext_resource type="PackedScene" uid="uid://byrrg7h2eyud0" path="res://assets/GLTF format/world/blockSnowSlopeHalf.glb" id="53_f8kh2"]
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="block2" parent="." instance=ExtResource("1_wklhx")]
+
+[node name="blockCliff2" parent="." instance=ExtResource("2_gljsl")]
+
+[node name="blockCliffCorner2" parent="." instance=ExtResource("3_iw77j")]
+
+[node name="blockCornerLarge2" parent="." instance=ExtResource("4_dqpmj")]
+
+[node name="blockCornerSmall2" parent="." instance=ExtResource("5_0077r")]
+
+[node name="blockCurve2" parent="." instance=ExtResource("6_qavjo")]
+
+[node name="blockCurveHalf2" parent="." instance=ExtResource("7_wrynv")]
+
+[node name="blockCurveLow2" parent="." instance=ExtResource("8_li870")]
+
+[node name="blockDirt2" parent="." instance=ExtResource("9_rrrrc")]
+
+[node name="blockDirtHalf2" parent="." instance=ExtResource("10_02fdp")]
+
+[node name="blockDirtRamp2" parent="." instance=ExtResource("11_ut68g")]
+
+[node name="blockDirtRampHalf2" parent="." instance=ExtResource("12_mpr8g")]
+
+[node name="blockEnd2" parent="." instance=ExtResource("13_y2xcw")]
+
+[node name="blockHalf2" parent="." instance=ExtResource("14_wffsx")]
+
+[node name="blockHexagon2" parent="." instance=ExtResource("15_mjjqf")]
+
+[node name="blockHexagonLow2" parent="." instance=ExtResource("16_ma2ps")]
+
+[node name="blockLarge2" parent="." instance=ExtResource("17_vl537")]
+
+[node name="blockLevel2" parent="." instance=ExtResource("18_dxa7q")]
+
+[node name="blockLong2" parent="." instance=ExtResource("19_gfbjr")]
+
+[node name="blockMoving2" parent="." instance=ExtResource("20_mcosf")]
+
+[node name="blockMovingBlue2" parent="." instance=ExtResource("21_t1h8l")]
+
+[node name="blockMovingLarge2" parent="." instance=ExtResource("22_rf6ei")]
+
+[node name="blockQuarter2" parent="." instance=ExtResource("23_vidli")]
+
+[node name="blockRounded2" parent="." instance=ExtResource("24_y1y8x")]
+
+[node name="blockRoundedLarge2" parent="." instance=ExtResource("25_najw8")]
+
+[node name="blockRoundedLong2" parent="." instance=ExtResource("26_v2mwy")]
+
+[node name="blockRoundedLow2" parent="." instance=ExtResource("27_xcqwg")]
+
+[node name="blockRoundedLowLong2" parent="." instance=ExtResource("28_wistr")]
+
+[node name="blockSlope2" parent="." instance=ExtResource("29_ta5eb")]
+
+[node name="blockSlopeHalf2" parent="." instance=ExtResource("30_g5v3x")]
+
+[node name="blockSnow2" parent="." instance=ExtResource("31_5g01n")]
+
+[node name="blockSnowCliff2" parent="." instance=ExtResource("32_bjhyc")]
+
+[node name="blockSnowCliffCorner2" parent="." instance=ExtResource("33_iss7u")]
+
+[node name="blockSnowCornerLarge2" parent="." instance=ExtResource("34_fqbma")]
+
+[node name="blockSnowCornerSmall2" parent="." instance=ExtResource("35_ffwqm")]
+
+[node name="blockSnowCurve2" parent="." instance=ExtResource("36_sutr1")]
+
+[node name="blockSnowCurveHalf2" parent="." instance=ExtResource("37_0fm0s")]
+
+[node name="blockSnowCurveLow2" parent="." instance=ExtResource("38_40b6k")]
+
+[node name="blockSnowEnd2" parent="." instance=ExtResource("39_wy2xm")]
+
+[node name="blockSnowHalf2" parent="." instance=ExtResource("40_21krh")]
+
+[node name="blockSnowHexagon2" parent="." instance=ExtResource("41_la8ak")]
+
+[node name="blockSnowHexagonLow2" parent="." instance=ExtResource("42_ieuxq")]
+
+[node name="blockSnowLarge2" parent="." instance=ExtResource("43_vtk0u")]
+
+[node name="blockSnowLevel2" parent="." instance=ExtResource("44_2pqbm")]
+
+[node name="blockSnowLong2" parent="." instance=ExtResource("45_k36g1")]
+
+[node name="blockSnowQuarter2" parent="." instance=ExtResource("46_r4hln")]
+
+[node name="blockSnowRounded2" parent="." instance=ExtResource("47_ni65i")]
+
+[node name="blockSnowRoundedLarge2" parent="." instance=ExtResource("48_pfjdw")]
+
+[node name="blockSnowRoundedLong2" parent="." instance=ExtResource("49_7sjuf")]
+
+[node name="blockSnowRoundedLow2" parent="." instance=ExtResource("50_vubjd")]
+
+[node name="blockSnowRoundedLowLong2" parent="." instance=ExtResource("51_s2rdf")]
+
+[node name="blockSnowSlope2" parent="." instance=ExtResource("52_12swy")]
+
+[node name="blockSnowSlopeHalf2" parent="." instance=ExtResource("53_f8kh2")]

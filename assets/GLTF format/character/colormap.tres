@@ -7,6 +7,3 @@ resource_name = "colormap"
 cull_mode = 2
 albedo_texture = ExtResource("1_u1rtg")
 albedo_texture_force_srgb = true
-metallic = 0.44
-metallic_specular = 0.19
-roughness = 0.4
