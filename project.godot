@@ -15,6 +15,10 @@ run/main_scene="res://scenes/02_character/02_character_lvl.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[editor]
+
+movie_writer/movie_file="D:/Users/Andres/Documents/GitHub/3D-Platform-Example/movie/video1.avi"
+
 [input]
 
 ui_camera_right={

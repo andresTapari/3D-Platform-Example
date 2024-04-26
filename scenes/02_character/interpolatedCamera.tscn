@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/02_character/interpolatedCamera.gd" id="1_nw8mf"]
 
-[node name="Node3D" type="Node3D"]
+[node name="InterplatedCamera" type="Node3D"]
 script = ExtResource("1_nw8mf")
 
 [node name="Gizmo" type="Node3D" parent="."]
@@ -10,4 +10,4 @@ unique_name_in_owner = true
 
 [node name="Camera3D" type="Camera3D" parent="Gizmo"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.932589, 0.360941, 0, -0.360941, 0.932589, 0, 2.15839, 3.40028)
+transform = Transform3D(1, 0, 0, 0, 0.942484, 0.334251, 0, -0.334251, 0.942484, 0, 1.17746, 2.18226)

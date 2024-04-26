@@ -5,7 +5,7 @@ extends Node3D
 ## Velocidad de respuesta
 @export var speed: float = 5.0
 ## Velocidad de rotacion
-@export var rotationSpeed: float = 5.0
+@export var rotationSpeed: float = 2
 ## Habilitar camara siempre mirar al jugador
 @export var lookAtTargetEn: bool = false
 

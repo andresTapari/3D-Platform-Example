@@ -35,7 +35,7 @@ func _physics_process(delta):
 			wasFalling = false
 			%character2/root.scale = Vector3(1.5, 0.5, 1.5)
 			
-	# Reestablece la escala del la mappa
+	# Reestablece la escala del la malla
 	%character2/root.scale = %character2/root.scale.lerp(Vector3(1,1,1),10*delta)
 
 	# Obtener la input del jugador
