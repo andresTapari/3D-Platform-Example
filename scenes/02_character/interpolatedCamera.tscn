@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxbskb8uvtbve"]
+
+[ext_resource type="Script" path="res://scenes/02_character/interpolatedCamera.gd" id="1_nw8mf"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_nw8mf")
+
+[node name="Gizmo" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Camera3D" type="Camera3D" parent="Gizmo"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.932589, 0.360941, 0, -0.360941, 0.932589, 0, 2.15839, 3.40028)

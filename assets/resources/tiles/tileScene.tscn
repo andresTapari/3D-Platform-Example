@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://ccr6fal70wueg"]
+[gd_scene load_steps=57 format=3 uid="uid://ccr6fal70wueg"]
 
 [ext_resource type="PackedScene" uid="uid://cxp8cagoro68b" path="res://assets/GLTF format/world/block.glb" id="1_wklhx"]
 [ext_resource type="PackedScene" uid="uid://c33wj41ejiddd" path="res://assets/GLTF format/world/blockCliff.glb" id="2_gljsl"]
@@ -53,6 +53,9 @@
 [ext_resource type="PackedScene" uid="uid://2ubl8v0dvsc1" path="res://assets/GLTF format/world/blockSnowRoundedLowLong.glb" id="51_s2rdf"]
 [ext_resource type="PackedScene" uid="uid://bdnxc2v6jn8b" path="res://assets/GLTF format/world/blockSnowSlope.glb" id="52_12swy"]
 [ext_resource type="PackedScene" uid="uid://byrrg7h2eyud0" path="res://assets/GLTF format/world/blockSnowSlopeHalf.glb" id="53_f8kh2"]
+[ext_resource type="PackedScene" uid="uid://qnwedg2ot6s3" path="res://assets/GLTF format/world/bridge.glb" id="54_hhi65"]
+[ext_resource type="PackedScene" uid="uid://ch1shete3pni4" path="res://assets/GLTF format/world/bridgeHalf.glb" id="55_hckcl"]
+[ext_resource type="PackedScene" uid="uid://khdipwtbbldy" path="res://assets/GLTF format/world/bridgeRamp.glb" id="56_suq2n"]
 
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
@@ -162,3 +165,12 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 [node name="blockSnowSlope2" parent="." instance=ExtResource("52_12swy")]
 
 [node name="blockSnowSlopeHalf2" parent="." instance=ExtResource("53_f8kh2")]
+
+[node name="bridge2" parent="." instance=ExtResource("54_hhi65")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="bridgeHalf2" parent="." instance=ExtResource("55_hckcl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="bridgeRamp2" parent="." instance=ExtResource("56_suq2n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

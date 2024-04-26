@@ -1,0 +1,147 @@
+[gd_scene load_steps=21 format=3 uid="uid://cet6gl4pglpn5"]
+
+[ext_resource type="PackedScene" uid="uid://psp68qgcfey2" path="res://assets/GLTF format/world/flowersLow.glb" id="1_8jgq1"]
+[ext_resource type="PackedScene" uid="uid://dpw4loj811a4i" path="res://assets/GLTF format/world/mushrooms.glb" id="2_wwg8q"]
+[ext_resource type="PackedScene" uid="uid://drv4g4j5u6qv2" path="res://assets/GLTF format/world/plant.glb" id="3_rvin1"]
+[ext_resource type="MeshLibrary" uid="uid://d3wke0axdexut" path="res://assets/resources/tiles/3dTIles2.tres" id="4_nphdl"]
+[ext_resource type="PackedScene" uid="uid://c5s4hn8ebt3fu" path="res://assets/GLTF format/world/flowers.glb" id="6_b7hsq"]
+[ext_resource type="PackedScene" uid="uid://ci7otd8ij2os5" path="res://assets/GLTF format/world/rocks.glb" id="7_pdky2"]
+[ext_resource type="PackedScene" uid="uid://kdjmhbkt41gy" path="res://assets/GLTF format/world/fence.glb" id="8_3r1ux"]
+[ext_resource type="PackedScene" uid="uid://dlhj4wdq1uhpa" path="res://assets/GLTF format/world/fenceCorner.glb" id="9_xbneo"]
+[ext_resource type="PackedScene" uid="uid://cd1hlsch2xiv6" path="res://assets/GLTF format/world/fenceCornerCurved.glb" id="10_j062u"]
+[ext_resource type="PackedScene" uid="uid://sf0bwe1qmpfg" path="res://assets/GLTF format/world/treePineSnow.glb" id="12_mqs2n"]
+[ext_resource type="PackedScene" uid="uid://oriyrm82jwlw" path="res://assets/GLTF format/world/treePineSmallSnow.glb" id="13_8w7ch"]
+[ext_resource type="PackedScene" uid="uid://dk68xj4gey58q" path="res://scenes/02_character/character/character.tscn" id="14_mvgrl"]
+[ext_resource type="PackedScene" uid="uid://bxbskb8uvtbve" path="res://scenes/02_character/interpolatedCamera.tscn" id="15_05x4c"]
+[ext_resource type="PackedScene" uid="uid://dri2t4tqxiw85" path="res://assets/GLTF format/world/tree.glb" id="15_uk3oc"]
+[ext_resource type="PackedScene" uid="uid://b7echq16ihgu3" path="res://assets/GLTF format/world/treePine.glb" id="16_my0av"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hwskd"]
+sky_top_color = Color(0.709804, 0.803922, 0.945098, 1)
+sky_horizon_color = Color(0.727451, 0.74323, 0.769525, 1)
+ground_horizon_color = Color(0.727451, 0.74323, 0.769525, 1)
+
+[sub_resource type="Sky" id="Sky_da7px"]
+sky_material = SubResource("ProceduralSkyMaterial_hwskd")
+
+[sub_resource type="Environment" id="Environment_lvech"]
+background_mode = 2
+background_energy_multiplier = 0.8
+sky = SubResource("Sky_da7px")
+tonemap_mode = 2
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_r2o4p"]
+albedo_color = Color(0.447059, 0.619608, 1, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_q38ug"]
+material = SubResource("ORMMaterial3D_r2o4p")
+size = Vector2(100, 100)
+
+[node name="01Lvl" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lvech")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.752254, -0.570601, 0.329437, 2.90393e-09, 0.5, 0.866026, -0.658874, -0.651471, 0.376127, 0, 0, 0)
+light_energy = 0.5
+shadow_enabled = true
+
+[node name="Lvl" type="Node" parent="."]
+
+[node name="flowersLow2" parent="Lvl" instance=ExtResource("1_8jgq1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44892, 1.02704, 0.553328)
+
+[node name="flowersLow3" parent="Lvl" instance=ExtResource("1_8jgq1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3172, 2.13335, -5.4482)
+
+[node name="flowersLow4" parent="Lvl" instance=ExtResource("1_8jgq1")]
+transform = Transform3D(0.916495, 0, -0.400045, 0, 1, 0, 0.400045, 0, 0.916495, 2.54094, 2.51172, -6.51112)
+
+[node name="mushrooms2" parent="Lvl" instance=ExtResource("2_wwg8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34559, 2.66237, -5.31899)
+
+[node name="plant2" parent="Lvl" instance=ExtResource("3_rvin1")]
+transform = Transform3D(0.758313, -0.0874046, -0.646004, 0.114504, 0.993423, 0, 0.641755, -0.0739699, 0.763334, 4.6814, 1.1275, -1.64445)
+
+[node name="plant3" parent="Lvl" instance=ExtResource("3_rvin1")]
+transform = Transform3D(0.758313, -0.0874046, -0.646004, 0.114504, 0.993423, 0, 0.641755, -0.0739699, 0.763334, 2.79259, 1.13091, 0.800209)
+
+[node name="fence2" parent="Lvl" instance=ExtResource("8_3r1ux")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.51667, 1.11964, -1.48986)
+
+[node name="fenceCorner2" parent="Lvl" instance=ExtResource("9_xbneo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.44751, 2.08834, -5.47928)
+
+[node name="fenceCorner3" parent="Lvl" instance=ExtResource("9_xbneo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5153, 2.64822, -7.47928)
+
+[node name="fenceCorner4" parent="Lvl" instance=ExtResource("9_xbneo")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.32963, 1.61062, -2.66477)
+
+[node name="flowers2" parent="Lvl" instance=ExtResource("6_b7hsq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.06046, 1.14539, 0.653202)
+
+[node name="flowers3" parent="Lvl" instance=ExtResource("6_b7hsq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.54264, 1.04537, 0.5927)
+
+[node name="flowers4" parent="Lvl" instance=ExtResource("6_b7hsq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.43947, 1.64537, -5.58373)
+
+[node name="rocks2" parent="Lvl" instance=ExtResource("7_pdky2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.637, 1.64929, -6.32093)
+
+[node name="rocks4" parent="Lvl" instance=ExtResource("7_pdky2")]
+transform = Transform3D(0.793056, 0, -0.609149, 0, 1, 0, 0.609149, 0, 0.793056, 9.48813, 2.59354, -6.4876)
+
+[node name="rocks3" parent="Lvl" instance=ExtResource("7_pdky2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.637, 1.64929, -3.51236)
+
+[node name="treePineSnow2" parent="Lvl" instance=ExtResource("12_mqs2n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6051, 1.30853, -4.62185)
+
+[node name="treePineSnow3" parent="Lvl" instance=ExtResource("12_mqs2n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3857, 3.57619, -8.44401)
+
+[node name="treePineSmallSnow2" parent="Lvl" instance=ExtResource("13_8w7ch")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.56919, 3.6493, -8.44353)
+
+[node name="fenceCornerCurved2" parent="Lvl" instance=ExtResource("10_j062u")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.681654, 2.64543, -3.58816)
+
+[node name="fenceCornerCurved3" parent="Lvl" instance=ExtResource("10_j062u")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2.27167, 2.64543, -3.58816)
+
+[node name="tree2" parent="Lvl" instance=ExtResource("15_uk3oc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23253, 2.64971, -5.32473)
+
+[node name="treePine2" parent="Lvl" instance=ExtResource("16_my0av")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.50851, 2.14017, -5.37504)
+
+[node name="tree3" parent="Lvl" instance=ExtResource("15_uk3oc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.81705, 1.14535, -1.30941)
+
+[node name="mushrooms3" parent="Lvl" instance=ExtResource("2_wwg8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7014, 1.6493, -4.51223)
+
+[node name="mushrooms4" parent="Lvl" instance=ExtResource("2_wwg8q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5115, 0.877868, -4.48705)
+
+[node name="GridMap" type="GridMap" parent="Lvl"]
+mesh_library = ExtResource("4_nphdl")
+cell_size = Vector3(1, 0.1, 1)
+data = {
+"cells": PackedInt32Array(0, 0, 1441792, 0, 65535, 1441792, 65537, 65535, 1441792, 65537, 0, 1441792, 65538, 0, 1441792, 65538, 65535, 1441792, 3, 0, 1441792, 65539, 65535, 1441792, 65540, 65535, 1441792, 65541, 65535, 1441792, 65541, 65534, 1441792, 65540, 65534, 1441792, 65539, 65534, 1441792, 65542, 65535, 1441792, 65541, 0, 1441792, 65542, 0, 1441792, 655361, 65535, 655367, 65541, 65533, 655368, 6, 65534, 655360, 720901, 65533, 655373, 720901, 65534, 655415, 393222, 1, 655414, 65541, 65532, 655368, 65541, 65531, 655368, 65542, 65531, 655368, 65541, 65530, 655368, 65542, 65530, 655368, 720901, 65532, 655373, 720901, 65531, 655373, 720901, 65530, 655369, 1048581, 65530, 655373, 1048582, 65530, 655373, 720902, 65530, 655369, 720902, 65531, 655369, 720902, 65532, 655373, 65542, 65532, 655368, 1048582, 65531, 655389, 720900, 65531, 1048629, 393219, 65530, 1048576, 393219, 65531, 1048576, 393218, 65531, 1048576, 393218, 65532, 1048576, 393218, 65530, 1048584, 1048578, 65530, 1048576, 983042, 65529, 1048576, 1048578, 65528, 1048576, 393216, 65531, 1441800, 458751, 65531, 1048584, 393216, 65530, 1048584, 1048577, 65530, 1048576, 1048577, 65531, 1441820, 393217, 65531, 1441800, 1114110, 65531, 655360, 1114110, 65530, 655360, 1048576, 65530, 1441792, 1048576, 65531, 1441792, 1114111, 65531, 1441792, 1114111, 65532, 1441794, 1114109, 65532, 655362, 1048575, 65530, 655360, 1114109, 65530, 1048578, 1048579, 65528, 1441809, 327682, 65529, 1441800, 327682, 65528, 1441800, 393219, 65528, 1441800, 720903, 65532, 1441845, 393224, 65532, 1441792, 393225, 65532, 1441822, 393225, 65531, 1441822, 393226, 65531, 1441822, 393226, 65532, 1048606, 393225, 65534, 655401, 720907, 65531, 1441846, 393225, 65530, 1441800, 393225, 65529, 1441800, 1048585, 65530, 655411, 393226, 65529, 655390, 1048586, 65529, 1441824, 1048585, 65529, 655390, 1048585, 65528, 655390, 1048586, 65528, 655390, 1703945, 65527, 1441822, 1703944, 65527, 1441822, 1703944, 65528, 1441822, 1703945, 65528, 1441843, 393230, 65529, 1441833, 393226, 65528, 1441800, 393225, 65528, 1441800, 393225, 65527, 1441800, 393224, 65527, 1441800, 393224, 65528, 1441800, 1048585, 65527, 1441800, 1048584, 65527, 1441800, 1048584, 65528, 1441800, 65545, 65534, 655400, 65550, 65529, 1048616, 65534, 2, 1048590, 65534, 3, 1048591, 6, 2, 1048591, 393226, 65533, 655411, 393227, 65532, 655411, 393227, 65531, 655390, 262157, 65531, 655401, -65533, 65528, 8, -65534, 65528, 8, -65534, 65529, 8, -65534, 65530, 8, -65535, 65530, 8, -65536, 65530, 8, -1, 65530, 8, -1, 65531, 8, -65536, 65531, 8, -65535, 65531, 8, -65534, 65531, 8, -65534, 65532, 8, -65536, 0, 8, -65535, 0, 8, -65534, 0, 8, -65533, 0, 8, -65536, 65535, 8, -65535, 65535, 8, -65534, 65535, 8, -65533, 65535, 8, -65533, 65534, 8, -65532, 65534, 8, -65531, 65534, 8, -65531, 65533, 8, -65531, 65530, 8, -65530, 65530, 8, -65530, 65531, 8, -65530, 65532, 8, -65531, 65532, 8, -65528, 65527, 8, -65528, 65528, 8, -65527, 65529, 8, -65527, 65530, 8, -65527, 65531, 8, -65527, 65532, 8, -65528, 65532, 8, -65525, 65531, 8, -262133, 65532, 8, -262134, 65533, 8, -262134, 65529, 8, -262134, 65528, 8, -262135, 65527, 8, -262134, 65531, 8, -262138, 65535, 8, -262138, 0, 8, -262139, 0, 8, -262139, 65535, 8, -262140, 65535, 8, -262141, 0, 8, -262142, 0, 8, -262143, 0, 8, -262144, 0, 8, 1114109, 65531, 1048577, 1114110, 65532, 655361, 458750, 65531, 655368, 458751, 65530, 655368, 65534, 65531, 655368, 393218, 65528, 655368, 393217, 65530, 655368, -262141, 65531, 655368, -262141, 65530, 655368, 393221, 65533, 655360, 393221, 65532, 655360, 393221, 65531, 655360, 393222, 65532, 655360)
+}
+metadata/_editor_floor_ = Vector3(-1, 6, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Lvl"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6.88112, 0.0883415, -7.73849)
+mesh = SubResource("QuadMesh_q38ug")
+
+[node name="character" parent="." instance=ExtResource("14_mvgrl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.318617, 1.06434, -0.397457)
+cameraNodePath = NodePath("../Node3D")
+
+[node name="Node3D" parent="." instance=ExtResource("15_05x4c")]
+target = NodePath("../character")
