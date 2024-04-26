@@ -9,23 +9,23 @@ sky_top_color = Color(0.709804, 0.803922, 0.945098, 1)
 sky_horizon_color = Color(0.727451, 0.74323, 0.769525, 1)
 ground_horizon_color = Color(0.727451, 0.74323, 0.769525, 1)
 
-[sub_resource type="Sky" id="Sky_yf63f"]
+[sub_resource type="Sky" id="Sky_2ottx"]
 sky_material = SubResource("ProceduralSkyMaterial_o5av3")
 
 [sub_resource type="Environment" id="Environment_ahq52"]
 background_mode = 2
-sky = SubResource("Sky_yf63f")
+sky = SubResource("Sky_2ottx")
 tonemap_mode = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mgx3h"]
 size = Vector3(50, 1, 50)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ke0pq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ur4cf"]
 albedo_texture = ExtResource("1_485jw")
 uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_vfbff"]
-material = SubResource("StandardMaterial3D_ke0pq")
+material = SubResource("StandardMaterial3D_ur4cf")
 size = Vector3(50, 1, 50)
 
 [node name="02CharacterLvl" type="Node3D"]

@@ -1,0 +1,101 @@
+[gd_scene load_steps=9 format=3 uid="uid://dcl1cxux0g658"]
+
+[ext_resource type="PackedScene" uid="uid://e64a4omgpcs" path="res://assets/GLTF format/platformer/coin.glb" id="1_p260f"]
+[ext_resource type="Texture2D" uid="uid://dx0roideuhlgg" path="res://assets/texture/coinParticle/particle.png" id="2_na2it"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1inu"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_na2it")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_m2j5i"]
+material = SubResource("StandardMaterial3D_i1inu")
+
+[sub_resource type="Curve" id="Curve_o4rgn"]
+max_value = 100.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 100), 0.0, 0.0, 0, 0, Vector2(1, 2.19781), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Animation" id="Animation_w5403"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("coin:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("coin:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2ftox"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("coin:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.5, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("coin:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 3.14159, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7m867"]
+_data = {
+"RESET": SubResource("Animation_w5403"),
+"idle": SubResource("Animation_2ftox")
+}
+
+[node name="Coin" type="Node3D"]
+
+[node name="coin" parent="." instance=ExtResource("1_p260f")]
+transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0, 0, 0)
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="coin"]
+transform = Transform3D(-0.284529, 0, 0.958668, 0, 1, 0, -0.958668, 0, -0.284529, 0, 0.208352, 0)
+lifetime = 2.0
+explosiveness = 0.43
+randomness = 0.99
+local_coords = true
+mesh = SubResource("QuadMesh_m2j5i")
+emission_shape = 1
+emission_sphere_radius = 1.0
+damping_max = 18.462
+damping_curve = SubResource("Curve_o4rgn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7m867")
+}

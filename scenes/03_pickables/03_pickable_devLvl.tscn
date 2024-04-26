@@ -1,0 +1,53 @@
+[gd_scene load_steps=11 format=3 uid="uid://dx6ucaenahksr"]
+
+[ext_resource type="Texture2D" uid="uid://dehekveur1pju" path="res://assets/texture/Dark/texture_01.png" id="1_ftc2l"]
+[ext_resource type="Texture2D" uid="uid://yxtppdo00gff" path="res://assets/texture/sky/cartoon-sky-day-landscape-anime-style-clouds-background-design-free-vector.jpg" id="2_jfa5r"]
+[ext_resource type="PackedScene" uid="uid://dk68xj4gey58q" path="res://scenes/02_character/character/character.tscn" id="3_2qtwg"]
+[ext_resource type="PackedScene" uid="uid://bxbskb8uvtbve" path="res://scenes/02_character/interpolatedCamera.tscn" id="4_sjc8w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ft7ph"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ke0pq"]
+albedo_texture = ExtResource("1_ftc2l")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_ot0gm"]
+material = SubResource("StandardMaterial3D_ke0pq")
+size = Vector3(50, 1, 50)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rm3k5"]
+panorama = ExtResource("2_jfa5r")
+
+[sub_resource type="Sky" id="Sky_da7px"]
+sky_material = SubResource("PanoramaSkyMaterial_rm3k5")
+
+[sub_resource type="Environment" id="Environment_yeekm"]
+background_mode = 2
+sky = SubResource("Sky_da7px")
+tonemap_mode = 2
+
+[node name="03PickableDevLvl" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.0749832, -0.863589, 0.49859, 0, 0.499998, 0.866027, -0.997185, 0.0649374, -0.0374914, 0, 0, 0)
+light_energy = 0.5
+shadow_enabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_ft7ph")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_ot0gm")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yeekm")
+
+[node name="character" parent="." instance=ExtResource("3_2qtwg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.795788, 0)
+cameraNodePath = NodePath("../InterplatedCamera")
+
+[node name="InterplatedCamera" parent="." instance=ExtResource("4_sjc8w")]
+target = NodePath("../character")

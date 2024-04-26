@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cet6gl4pglpn5"]
+[gd_scene load_steps=28 format=3 uid="uid://cet6gl4pglpn5"]
 
 [ext_resource type="PackedScene" uid="uid://psp68qgcfey2" path="res://assets/GLTF format/world/flowersLow.glb" id="1_8jgq1"]
 [ext_resource type="Texture2D" uid="uid://yxtppdo00gff" path="res://assets/texture/sky/cartoon-sky-day-landscape-anime-style-clouds-background-design-free-vector.jpg" id="1_wftqi"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cd1hlsch2xiv6" path="res://assets/GLTF format/world/fenceCornerCurved.glb" id="10_j062u"]
 [ext_resource type="PackedScene" uid="uid://sf0bwe1qmpfg" path="res://assets/GLTF format/world/treePineSnow.glb" id="12_mqs2n"]
 [ext_resource type="PackedScene" uid="uid://oriyrm82jwlw" path="res://assets/GLTF format/world/treePineSmallSnow.glb" id="13_8w7ch"]
+[ext_resource type="PackedScene" uid="uid://dk68xj4gey58q" path="res://scenes/02_character/character/character.tscn" id="14_mvgrl"]
 [ext_resource type="PackedScene" uid="uid://bxbskb8uvtbve" path="res://scenes/02_character/interpolatedCamera.tscn" id="15_05x4c"]
 [ext_resource type="PackedScene" uid="uid://dri2t4tqxiw85" path="res://assets/GLTF format/world/tree.glb" id="15_uk3oc"]
 [ext_resource type="PackedScene" uid="uid://b7echq16ihgu3" path="res://assets/GLTF format/world/treePine.glb" id="16_my0av"]
@@ -25,12 +26,12 @@
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_155x5"]
 panorama = ExtResource("1_wftqi")
 
-[sub_resource type="Sky" id="Sky_da7px"]
+[sub_resource type="Sky" id="Sky_lankh"]
 sky_material = SubResource("PanoramaSkyMaterial_155x5")
 
 [sub_resource type="Environment" id="Environment_lvech"]
 background_mode = 2
-sky = SubResource("Sky_da7px")
+sky = SubResource("Sky_lankh")
 tonemap_mode = 2
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_r2o4p"]
@@ -163,6 +164,9 @@ transform = Transform3D(-0.334646, 0, 0.942344, 0, 1, 0, -0.942344, 0, -0.334646
 [node name="grass" parent="Lvl" instance=ExtResource("19_7aqqd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.231701, 2.64537, -5.60652)
 
+[node name="grass3" parent="Lvl" instance=ExtResource("19_7aqqd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.54937, 2.64537, -3.69677)
+
 [node name="grass2" parent="Lvl" instance=ExtResource("19_7aqqd")]
 transform = Transform3D(0.734844, 0, -0.678237, 0, 1, 0, 0.678237, 0, 0.734844, -2.63053, 2.60502, -4.96278)
 
@@ -170,9 +174,14 @@ transform = Transform3D(0.734844, 0, -0.678237, 0, 1, 0, 0.678237, 0, 0.734844, 
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.351232, 1.04535, -0.56335)
 
 [node name="cube" parent="Lvl" instance=ExtResource("21_uxnn7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.14241, 2.9233, -3.53049)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.14241, 2.56682, -7.61242)
 
 [node name="sign2" parent="Lvl" instance=ExtResource("17_w08ar")]
 transform = Transform3D(-0.84341, 0, 0.53727, 0, 1, 0, -0.53727, 0, -0.84341, 2.95083, 1.13219, -0.75779)
 
 [node name="Node3D" parent="." instance=ExtResource("15_05x4c")]
+target = NodePath("../character")
+
+[node name="character" parent="." instance=ExtResource("14_mvgrl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38398, 1.13631, 0.598047)
+cameraNodePath = NodePath("../Node3D")
