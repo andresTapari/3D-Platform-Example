@@ -4,9 +4,7 @@
 
 [resource]
 resource_name = "colormap"
-cull_mode = 2
 albedo_texture = ExtResource("1_orq6a")
 emission = Color(0.898039, 1, 0, 1)
 emission_energy_multiplier = 0.5
-rim_enabled = true
 rim = 0.05

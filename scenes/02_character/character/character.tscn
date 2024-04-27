@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dk68xj4gey58q"]
+[gd_scene load_steps=33 format=3 uid="uid://dk68xj4gey58q"]
 
 [ext_resource type="Material" uid="uid://dwkg0q62ea0io" path="res://assets/GLTF format/character/colormap.tres" id="1_dqtc0"]
 [ext_resource type="Script" path="res://scenes/02_character/character/character.gd" id="2_edsv1"]
@@ -215,8 +215,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xllf3")
 
+[sub_resource type="Animation" id="Animation_g6s0q"]
+length = 0.001
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c5vro"]
 _data = {
+"RESET": SubResource("Animation_g6s0q"),
 "idle": ExtResource("4_lguec"),
 "jump": ExtResource("6_7opud"),
 "static": ExtResource("3_lhvfp"),
@@ -282,22 +286,22 @@ mesh = SubResource("ArrayMesh_i54pc")
 skeleton = NodePath("")
 
 [node name="torso" type="MeshInstance3D" parent="character2/root"]
-transform = Transform3D(1, 0, 0, 0, 0.997135, 0.075644, 0, -0.075644, 0.997135, -1.80478e-15, 0.17625, -0.02375)
+transform = Transform3D(1, 0, 0, 0, 0.998402, 0.0565075, 0, -0.0565075, 0.998402, -1.80478e-15, 0.17625, -0.02375)
 mesh = SubResource("ArrayMesh_qmaav")
 skeleton = NodePath("")
 
 [node name="arm-left" type="MeshInstance3D" parent="character2/root/torso"]
-transform = Transform3D(0.731179, 0.682186, 0, -0.682186, 0.731179, 0, 0, 0, 1, 0.3, 0.175, 0)
+transform = Transform3D(0.769198, 0.639011, 0, -0.639011, 0.769198, 0, 0, 0, 1, 0.3, 0.175, 0)
 mesh = SubResource("ArrayMesh_g5bq6")
 skeleton = NodePath("")
 
 [node name="arm-right" type="MeshInstance3D" parent="character2/root/torso"]
-transform = Transform3D(0.731179, -0.682186, 0, 0.682186, 0.731179, 0, 0, 0, 1, -0.3, 0.1195, 0)
+transform = Transform3D(0.769198, -0.639011, 0, 0.639011, 0.769198, 0, 0, 0, 1, -0.3, 0.1195, 0)
 mesh = SubResource("ArrayMesh_qf6yn")
 skeleton = NodePath("")
 
 [node name="antenna" type="MeshInstance3D" parent="character2/root/torso"]
-transform = Transform3D(1, 0, 0, 0, 0.999733, 0.0230982, 0, -0.0230982, 0.999733, 0, 0.6, 0)
+transform = Transform3D(1, 0, 0, 0, 0.998112, 0.061419, 0, -0.061419, 0.998112, 0, 0.6, 0)
 mesh = SubResource("ArrayMesh_3ljgr")
 skeleton = NodePath("")
 

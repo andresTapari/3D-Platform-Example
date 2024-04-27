@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="3d-platform-example"
-run/main_scene="res://scenes/02_character/02_character_lvl.tscn"
+run/main_scene="res://scenes/01_lvl/01_lvl.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
