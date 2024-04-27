@@ -257,7 +257,7 @@ states/walk/position = Vector2(519, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_706fj"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_ul383"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_0weos"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_l614i"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_yeuqr"), "jump", "walk", SubResource("AnimationNodeStateMachineTransition_2p3xr"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_51eno")]
 graph_offset = Vector2(-14, -89)
 
-[node name="character" type="CharacterBody3D"]
+[node name="character" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("2_edsv1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -282,22 +282,22 @@ mesh = SubResource("ArrayMesh_i54pc")
 skeleton = NodePath("")
 
 [node name="torso" type="MeshInstance3D" parent="character2/root"]
-transform = Transform3D(1, 0, 0, 0, 0.9998, 0.0200074, 0, -0.0200074, 0.9998, -1.80478e-15, 0.17625, -0.02375)
+transform = Transform3D(1, 0, 0, 0, 0.997135, 0.075644, 0, -0.075644, 0.997135, -1.80478e-15, 0.17625, -0.02375)
 mesh = SubResource("ArrayMesh_qmaav")
 skeleton = NodePath("")
 
 [node name="arm-left" type="MeshInstance3D" parent="character2/root/torso"]
-transform = Transform3D(0.834471, 0.551053, 0, -0.551053, 0.834471, 0, 0, 0, 1, 0.3, 0.175, 0)
+transform = Transform3D(0.731179, 0.682186, 0, -0.682186, 0.731179, 0, 0, 0, 1, 0.3, 0.175, 0)
 mesh = SubResource("ArrayMesh_g5bq6")
 skeleton = NodePath("")
 
 [node name="arm-right" type="MeshInstance3D" parent="character2/root/torso"]
-transform = Transform3D(0.834471, -0.551053, 0, 0.551053, 0.834471, 0, 0, 0, 1, -0.3, 0.1195, 0)
+transform = Transform3D(0.731179, -0.682186, 0, 0.682186, 0.731179, 0, 0, 0, 1, -0.3, 0.1195, 0)
 mesh = SubResource("ArrayMesh_qf6yn")
 skeleton = NodePath("")
 
 [node name="antenna" type="MeshInstance3D" parent="character2/root/torso"]
-transform = Transform3D(1, 0, 0, 0, 0.990966, 0.13411, 0, -0.13411, 0.990966, 0, 0.6, 0)
+transform = Transform3D(1, 0, 0, 0, 0.999733, 0.0230982, 0, -0.0230982, 0.999733, 0, 0.6, 0)
 mesh = SubResource("ArrayMesh_3ljgr")
 skeleton = NodePath("")
 
