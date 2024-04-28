@@ -7,3 +7,6 @@ resource_name = "colormap"
 cull_mode = 2
 albedo_texture = ExtResource("1_u1rtg")
 albedo_texture_force_srgb = true
+emission = Color(1, 1, 1, 1)
+rim_enabled = true
+rim_tint = 0.38

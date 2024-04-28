@@ -21,16 +21,23 @@ func _ready():
 	# Obtenemos nodo de la cámara
 	if not cameraNodePath.is_empty():
 		camera = get_node(cameraNodePath).get_gizmo()
+	# Obtenemos maquina de estados
 	stateMachine = %AnimationTree["parameters/playback"]
 	
 func _physics_process(delta):
+	# Si la camara no esta establecida
 	if not camera:
+		# Sale
 		return
 	
+	# Si no esta en el suelo
 	if not is_on_floor():
+		# Aplica gravedad
 		gravity = gravityForce
 	else:
+		# Si no esta en suelo 
 		gravity = 0
+		# Si esta aterrizando
 		if wasFalling:
 			wasFalling = false
 			%character2/root.scale = Vector3(1.5, 0.5, 1.5)
@@ -66,14 +73,32 @@ func _physics_process(delta):
 	
 	rotation.y = lerp_angle(rotation.y, rotationDirection, delta * 10)
 
+	# actualizamos animaciones del personaje:
+	update_animation(movement)
+
+	# Aplicar movimiento
+	move_and_slide()
+
+func get_input() -> Vector3:
+	var movement = Vector3()
+	
+	movement.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	movement.z = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	
+	movement = movement.rotated(Vector3.UP, camera.rotation.y).normalized()
+
+	return movement.normalized()  # Normalizar el vector de movimiento
+
+func handle_jump() -> void:
+	pass
+	
+func update_animation(movement: Vector3) -> void:
+	# Si el personaje esta en el suelo
 	if is_on_floor():
 		if movement.length() != 0:
 			stateMachine.travel("walk")
 		else:
 			stateMachine.travel("idle")
+	# Si esta en el aire
 	else:
 		stateMachine.travel("jump")
-	
-	# Aplicar movimiento
-	move_and_slide()
-

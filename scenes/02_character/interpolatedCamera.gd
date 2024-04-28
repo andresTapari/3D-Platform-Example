@@ -5,17 +5,21 @@ extends Node3D
 ## Velocidad de respuesta
 @export var speed: float = 5.0
 ## Velocidad de rotacion
-@export var rotationSpeed: float = 2
+@export var rotationSpeed: float = 5
 ## Habilitar camara siempre mirar al jugador
 @export var lookAtTargetEn: bool = false
+## Angulo minimo de rotación azimut
+@export var azimutMinDegrees: float = -25
+## Angulo máximo de rotación azimut
+@export var azimutMaxDegrees: float = 25
+
 
 # Nodos:
-## Nodo player
 var player: CharacterBody3D = null
 
 # Variables:
 var currentPosition = Vector3()
-var targetPosition = Vector3()
+var targetPosition  = Vector3()
 
 func _ready():
 	# Inicializamos la posición actual del nodo en su posicion global
@@ -58,11 +62,12 @@ func handle_input(delta):
 
 	# Rotamos la cámara
 	currentRotation += cameraInput * rotationSpeed
-	currentRotation.x = limit(currentRotation.x, -15, 30)  # Limitamos la rotación entre 10º y 80º
+	currentRotation.x = limit(currentRotation.x, azimutMinDegrees, azimutMaxDegrees)  # Limitamos la rotación entre 10º y 80º
 
 	# Rotamos cámara
 	%Gizmo.rotation_degrees = currentRotation
 
+## Limita value entre min y max. 
 func limit(value: float, min: float, max: float) -> float:
 	if value >= min and value <= max:
 		return value
@@ -70,5 +75,6 @@ func limit(value: float, min: float, max: float) -> float:
 		return max
 	return min
 
+## Devuelve el nodo gizmo
 func get_gizmo():
 	return %Gizmo

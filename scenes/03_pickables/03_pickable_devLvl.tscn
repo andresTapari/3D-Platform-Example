@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dx6ucaenahksr"]
+[gd_scene load_steps=13 format=3 uid="uid://dx6ucaenahksr"]
 
 [ext_resource type="Texture2D" uid="uid://dehekveur1pju" path="res://assets/texture/Dark/texture_01.png" id="1_ftc2l"]
 [ext_resource type="Texture2D" uid="uid://yxtppdo00gff" path="res://assets/texture/sky/cartoon-sky-day-landscape-anime-style-clouds-background-design-free-vector.jpg" id="2_jfa5r"]
 [ext_resource type="PackedScene" uid="uid://dk68xj4gey58q" path="res://scenes/02_character/character/character.tscn" id="3_2qtwg"]
 [ext_resource type="PackedScene" uid="uid://bxbskb8uvtbve" path="res://scenes/02_character/interpolatedCamera.tscn" id="4_sjc8w"]
 [ext_resource type="PackedScene" uid="uid://dcl1cxux0g658" path="res://scenes/03_pickables/coin.tscn" id="5_ljalo"]
+[ext_resource type="PackedScene" uid="uid://5m8xcschfcah" path="res://scenes/04_hud/hud/hud.tscn" id="6_7j8sp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ft7ph"]
 size = Vector3(50, 1, 50)
@@ -55,3 +56,6 @@ target = NodePath("../character")
 
 [node name="Coin" parent="." instance=ExtResource("5_ljalo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.14443, 0.741799, 0)
+score = 10
+
+[node name="CanvasLayer" parent="." instance=ExtResource("6_7j8sp")]

@@ -37,6 +37,7 @@ sky_material = SubResource("PanoramaSkyMaterial_155x5")
 background_mode = 2
 sky = SubResource("Sky_lankh")
 tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_r2o4p"]
 albedo_color = Color(0.447059, 0.619608, 1, 1)
@@ -256,7 +257,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.39806, 1.03885, 0.617235)
 target = NodePath("../character")
 
 [node name="character" parent="." instance=ExtResource("14_mvgrl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38398, 1.13631, 0.598047)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38398, 1.15042, 0.598047)
 cameraNodePath = NodePath("../Node3D")
 
 [node name="barrel2" parent="." instance=ExtResource("24_jwakk")]
