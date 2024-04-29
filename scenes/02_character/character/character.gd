@@ -46,28 +46,20 @@ func _physics_process(delta):
 	%character2/root.scale = %character2/root.scale.lerp(Vector3(1,1,1),10*delta)
 
 	# Obtener la input del jugador
-	var movement = Vector3()
+	var movement = get_player_input()
 	
-	movement.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	movement.z = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
-	
-	movement = movement.rotated(Vector3.UP, camera.rotation.y).normalized()
-	movement = movement.normalized()  # Normalizar el vector de movimiento
-	
+	# Obtener el salto del jugador	
 	if Input.is_action_just_pressed("ui_jump"):
-		wasFalling = true
-		%character2/root.scale = Vector3(0.5, 1.5, 0.5)
-		gravity = jump_strength
+		handle_jump()
 
 	# Mover el personaje en función de la entrada del jugador y la velocidad
-	
 	velocity.x = movement.x * speed
 	velocity.z = movement.z * speed
 
 	# Aplicar gravedad
 	velocity.y += gravity * delta
 
-	# Rotacion
+	# Aplicamos rotacion
 	if Vector2(velocity.z, velocity.x).length() > 0:
 		rotationDirection = Vector2(velocity.z, velocity.x).angle()
 	
@@ -79,18 +71,22 @@ func _physics_process(delta):
 	# Aplicar movimiento
 	move_and_slide()
 
-func get_input() -> Vector3:
+func get_player_input() -> Vector3:
 	var movement = Vector3()
 	
+	# Obtenemos entradas de teclado o joystick
 	movement.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	movement.z = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	
+	# Aplicamos rotación de la cámara
 	movement = movement.rotated(Vector3.UP, camera.rotation.y).normalized()
 
 	return movement.normalized()  # Normalizar el vector de movimiento
 
 func handle_jump() -> void:
-	pass
+	wasFalling = true
+	%character2/root.scale = Vector3(0.5, 1.5, 0.5)
+	gravity = jump_strength
 	
 func update_animation(movement: Vector3) -> void:
 	# Si el personaje esta en el suelo
