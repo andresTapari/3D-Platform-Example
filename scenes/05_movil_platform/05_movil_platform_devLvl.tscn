@@ -74,6 +74,8 @@ texture = ExtResource("6_butuy")
 
 [node name="AnimatableBody3D2" parent="." instance=ExtResource("5_u7c3e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.03696, -2)
+axis_lock_linear_y = false
+axis_lock_linear_z = true
 targetAPath = NodePath("../Marker3D3")
 targetBPath = NodePath("../Marker3D4")
 waitTime = 1.0

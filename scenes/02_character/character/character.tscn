@@ -286,22 +286,22 @@ mesh = SubResource("ArrayMesh_i54pc")
 skeleton = NodePath("")
 
 [node name="torso" type="MeshInstance3D" parent="character2/root"]
-transform = Transform3D(1, 0, 0, 0, 0.999999, 0.000934707, 0, -0.000934707, 0.999999, -1.80478e-15, 0.17625, -0.02375)
+transform = Transform3D(1, 0, 0, 0, 0.99785, 0.0655363, 0, -0.0655363, 0.99785, -1.80478e-15, 0.17625, -0.02375)
 mesh = SubResource("ArrayMesh_qmaav")
 skeleton = NodePath("")
 
 [node name="arm-left" type="MeshInstance3D" parent="character2/root/torso"]
-transform = Transform3D(0.862338, 0.506336, 0, -0.506336, 0.862338, 0, 0, 0, 1, 0.3, 0.175, 0)
+transform = Transform3D(0.751577, 0.659648, 0, -0.659648, 0.751577, 0, 0, 0, 1, 0.3, 0.175, 0)
 mesh = SubResource("ArrayMesh_g5bq6")
 skeleton = NodePath("")
 
 [node name="arm-right" type="MeshInstance3D" parent="character2/root/torso"]
-transform = Transform3D(0.862338, -0.506336, 0, 0.506336, 0.862338, 0, 0, 0, 1, -0.3, 0.1195, 0)
+transform = Transform3D(0.751577, -0.659648, 0, 0.659648, 0.751577, 0, 0, 0, 1, -0.3, 0.1195, 0)
 mesh = SubResource("ArrayMesh_qf6yn")
 skeleton = NodePath("")
 
 [node name="antenna" type="MeshInstance3D" parent="character2/root/torso"]
-transform = Transform3D(1, 0, 0, 0, 0.985644, 0.168833, 0, -0.168833, 0.985644, 0, 0.6, 0)
+transform = Transform3D(1, 0, 0, 0, 0.999059, 0.0433527, 0, -0.0433527, 0.999059, 0, 0.6, 0)
 mesh = SubResource("ArrayMesh_3ljgr")
 skeleton = NodePath("")
 
