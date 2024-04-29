@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://d3ldrwc4svn25"]
+
+[ext_resource type="Texture2D" uid="uid://dehekveur1pju" path="res://assets/texture/Dark/texture_01.png" id="1_2n4jo"]
+[ext_resource type="Texture2D" uid="uid://yxtppdo00gff" path="res://assets/texture/sky/cartoon-sky-day-landscape-anime-style-clouds-background-design-free-vector.jpg" id="2_1ywfa"]
+[ext_resource type="PackedScene" uid="uid://dk68xj4gey58q" path="res://scenes/02_character/character/character.tscn" id="3_kydcc"]
+[ext_resource type="PackedScene" uid="uid://bxbskb8uvtbve" path="res://scenes/02_character/interpolatedCamera.tscn" id="4_7kuuy"]
+[ext_resource type="PackedScene" uid="uid://ixh1j16u4u5a" path="res://scenes/05_movil_platform/movilPlatform/movilPlatform.tscn" id="5_u7c3e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ow4wf"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ke0pq"]
+albedo_texture = ExtResource("1_2n4jo")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_rd1k1"]
+material = SubResource("StandardMaterial3D_ke0pq")
+size = Vector3(50, 1, 50)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gwrq5"]
+panorama = ExtResource("2_1ywfa")
+
+[sub_resource type="Sky" id="Sky_da7px"]
+sky_material = SubResource("PanoramaSkyMaterial_gwrq5")
+
+[sub_resource type="Environment" id="Environment_710f8"]
+background_mode = 2
+sky = SubResource("Sky_da7px")
+tonemap_mode = 2
+
+[node name="05MovilPlatformDevLvl" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.0749832, -0.863589, 0.49859, 0, 0.499998, 0.866027, -0.997185, 0.0649374, -0.0374914, 0, 0, 0)
+light_energy = 0.5
+shadow_enabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_ow4wf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_rd1k1")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_710f8")
+
+[node name="character" parent="." instance=ExtResource("3_kydcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.795788, 0)
+cameraNodePath = NodePath("../InterplatedCamera")
+
+[node name="InterplatedCamera" parent="." instance=ExtResource("4_7kuuy")]
+target = NodePath("../character")
+
+[node name="AnimatableBody3D" parent="." instance=ExtResource("5_u7c3e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.03696, -2)
+targetAPath = NodePath("../Marker3D")
+targetBPath = NodePath("../Marker3D2")
+speed = 2.0
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, -2)
+
+[node name="Marker3D2" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, -2)

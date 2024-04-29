@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ixh1j16u4u5a"]
+
+[ext_resource type="PackedScene" uid="uid://do8sg1k5xvj2h" path="res://assets/GLTF format/platformer/platform.glb" id="1_3e6a1"]
+[ext_resource type="Script" path="res://scenes/05_movil_platform/movilPlatform/movilPlatform.gd" id="1_jwoku"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y6vns"]
+size = Vector3(2.01294, 0.480469, 2.03345)
+
+[node name="AnimatableBody3D" type="AnimatableBody3D"]
+axis_lock_linear_y = true
+sync_to_physics = false
+script = ExtResource("1_jwoku")
+waitTime = 3.0
+speed = 4.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00109863, -0.241277, 0.000610352)
+shape = SubResource("BoxShape3D_y6vns")
+
+[node name="platform" parent="." instance=ExtResource("1_3e6a1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.501042, 0)
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -10,23 +10,23 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_ft7ph"]
 size = Vector3(50, 1, 50)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ke0pq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5sr16"]
 albedo_texture = ExtResource("1_ftc2l")
 uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_ot0gm"]
-material = SubResource("StandardMaterial3D_ke0pq")
+material = SubResource("StandardMaterial3D_5sr16")
 size = Vector3(50, 1, 50)
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_rm3k5"]
 panorama = ExtResource("2_jfa5r")
 
-[sub_resource type="Sky" id="Sky_da7px"]
+[sub_resource type="Sky" id="Sky_g1xyy"]
 sky_material = SubResource("PanoramaSkyMaterial_rm3k5")
 
 [sub_resource type="Environment" id="Environment_yeekm"]
 background_mode = 2
-sky = SubResource("Sky_da7px")
+sky = SubResource("Sky_g1xyy")
 tonemap_mode = 2
 
 [node name="03PickableDevLvl" type="Node3D"]
