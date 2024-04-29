@@ -22,5 +22,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.501042, 0)
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
+one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

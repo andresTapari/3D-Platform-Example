@@ -10,7 +10,7 @@ var targetA: Marker3D = null
 var targetB: Marker3D = null
 
 var targetToMove: Marker3D = null
-var tolerance: float = 2
+var tolerance: float = 0.05
 
 func _ready():
 	if not targetAPath.is_empty():
