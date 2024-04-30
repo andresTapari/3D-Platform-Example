@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://btvbdcrnwitjc"]
+[gd_scene load_steps=5 format=3 uid="uid://btvbdcrnwitjc"]
 
 [ext_resource type="PackedScene" uid="uid://4yb45gikrxyw" path="res://assets/GLTF format/world/saw.glb" id="1_gwlpk"]
 [ext_resource type="Script" path="res://scenes/06_saw/saw.gd" id="1_ntp2b"]
@@ -6,6 +6,10 @@
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_aawdk"]
 height = 0.0911309
 radius = 0.316255
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_iuhfa"]
+height = 0.115989
+radius = 0.430559
 
 [node name="Saw" type="AnimatableBody3D"]
 sync_to_physics = false
@@ -15,4 +19,13 @@ script = ExtResource("1_ntp2b")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("CylinderShape3D_aawdk")
 
-[node name="saw2" parent="." instance=ExtResource("1_gwlpk")]
+[node name="saw" parent="." instance=ExtResource("1_gwlpk")]
+unique_name_in_owner = true
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_iuhfa")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
