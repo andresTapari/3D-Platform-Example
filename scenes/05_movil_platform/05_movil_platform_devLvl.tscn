@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d3ldrwc4svn25"]
+[gd_scene load_steps=14 format=3 uid="uid://d3ldrwc4svn25"]
 
 [ext_resource type="Texture2D" uid="uid://dehekveur1pju" path="res://assets/texture/Dark/texture_01.png" id="1_2n4jo"]
 [ext_resource type="Texture2D" uid="uid://yxtppdo00gff" path="res://assets/texture/sky/cartoon-sky-day-landscape-anime-style-clouds-background-design-free-vector.jpg" id="2_1ywfa"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bxbskb8uvtbve" path="res://scenes/02_character/interpolatedCamera.tscn" id="4_7kuuy"]
 [ext_resource type="PackedScene" uid="uid://ixh1j16u4u5a" path="res://scenes/05_movil_platform/movilPlatform/movilPlatform.tscn" id="5_u7c3e"]
 [ext_resource type="Texture2D" uid="uid://cmivlosjcnc0p" path="res://icon.svg" id="6_butuy"]
+[ext_resource type="PackedScene" uid="uid://btvbdcrnwitjc" path="res://scenes/06_saw/saw.tscn" id="7_ymbdx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ow4wf"]
 size = Vector3(50, 1, 50)
@@ -111,3 +112,9 @@ texture = ExtResource("6_butuy")
 [node name="Label3D" type="Label3D" parent="Marker3D4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.267588, 0)
 text = "Position B"
+
+[node name="AnimatableBody3D3" parent="." instance=ExtResource("7_ymbdx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.99985, -1.22525)
+targetAPath = NodePath("../Marker3D")
+targetBPath = NodePath("../Marker3D2")
+speed = 2.0

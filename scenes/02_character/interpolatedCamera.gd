@@ -51,7 +51,7 @@ func _process(delta):
 	# Actualizar la posición del nodo
 	global_position = currentPosition
 
-func handle_input(delta):
+func handle_input(_delta):
 	# Obtenemos la rotación actual de la camara
 	var currentRotation = %Gizmo.rotation_degrees
 	
