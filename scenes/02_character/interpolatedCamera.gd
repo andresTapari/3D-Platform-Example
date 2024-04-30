@@ -67,13 +67,13 @@ func handle_input(delta):
 	# Rotamos cámara
 	%Gizmo.rotation_degrees = currentRotation
 
-## Limita value entre min y max. 
-func limit(value: float, min: float, max: float) -> float:
-	if value >= min and value <= max:
+## Limita value entre minValue y maxValue. 
+func limit(value: float, minValue: float, maxValue: float) -> float:
+	if value >= minValue and value <= maxValue:
 		return value
-	elif value > max:
-		return max
-	return min
+	elif value > maxValue:
+		return maxValue
+	return minValue
 
 ## Devuelve el nodo gizmo
 func get_gizmo():

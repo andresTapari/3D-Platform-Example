@@ -1,44 +1,72 @@
-extends AnimatableBody3D
+class_name MovilPlatform extends AnimatableBody3D
 
-
+## Ruta al nodo de posición inicial
 @export var targetAPath: NodePath = ""
+## Ruta al nodo de posición final
 @export var targetBPath: NodePath = ""
+## Tiempo de espera
 @export var waitTime:       float = 2
+## Velocidad de movimiento
 @export var speed:          float = 5
 
-var targetA: Marker3D = null
-var targetB: Marker3D = null
+var targetA: Marker3D = null		# Posición A
+var targetB: Marker3D = null		# Posición A
 
-var targetToMove: Marker3D = null
-var tolerance: float = 0.01
+var targetToMove: Marker3D = null	# Posición actual a donde moverse
+var tolerance: float = 0.01			# Tolerancia final de movimiento
+
+var restTimer: Timer = null
 
 func _ready():
-	if not targetAPath.is_empty():
-		targetA = get_node(targetAPath)
-	if not targetBPath.is_empty():
-		targetB = get_node(targetBPath)
-	%Timer.wait_time = waitTime
-	%Timer.start()
+	# Cargamos nodos
+	targetA = load_node(targetAPath)
+	targetB = load_node(targetBPath)
+	# Configuramos timer
+	restTimer = Timer.new()
+	add_child(restTimer)
+	restTimer.wait_time = waitTime
+	restTimer.one_shot  = true
+	restTimer.autostart = true
+	restTimer.timeout.connect(_on_restTimer_timeout)
+	restTimer.start()
 
 func _physics_process(delta):
+	# Si targetToMove no es valido
 	if not targetToMove:
+		# sale
 		return
 
+	# Si estamos dentro de la tolerancia 
 	if (global_position - targetToMove.global_position).length() < tolerance:
-		if %Timer.is_stopped():
-			%Timer.start()
+		# Y el timer esta detenido, iniciamos timer y salimos
+		if restTimer.is_stopped():
+			restTimer.start()
 		return
 
+	# Determinamos posicion a donde mover y desplazamos
 	var movement = (targetToMove.global_position - global_position).normalized()
 	global_position += movement*speed*delta
-	
 
-func get_farest(targetA: Marker3D, targetB: Marker3D) -> Marker3D:
-	if not targetA or not targetB:
+## Esta función carga el nodo
+func load_node(path: NodePath) -> Object:
+	# Si el path no esta vacio
+	if not path.is_empty():
+		# carga y devuelve el nodo
+		return get_node(path)
+	# Si no, emite una advertencia y retorna nulo
+	push_warning("At ", self.name, ", path is empty.")
+	return null
+
+## Devuelve el nodo mas lejano
+func get_farest(markerA: Marker3D, markerB: Marker3D) -> Marker3D:
+	# Si los nodos no son 
+	if not markerA or not markerB:
 		return null
-	if (global_position - targetA.global_position).length() > (global_position - targetB.global_position).length():
-		return targetA
-	return targetB
+	if (global_position - markerA.global_position).length() > (global_position - markerB.global_position).length():
+		return markerA
+	return markerB
 
-func _on_timer_timeout():
+## Se ejecuta cuando el timer dispara
+func _on_restTimer_timeout():
+	# determinamos el nodo mas lejano
 	targetToMove = get_farest(targetA,targetB)
