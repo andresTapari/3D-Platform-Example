@@ -1,0 +1,89 @@
+[gd_scene load_steps=14 format=3 uid="uid://dwffvdpw4q7md"]
+
+[ext_resource type="Texture2D" uid="uid://dehekveur1pju" path="res://assets/texture/Dark/texture_01.png" id="1_ajji4"]
+[ext_resource type="Texture2D" uid="uid://yxtppdo00gff" path="res://assets/texture/sky/cartoon-sky-day-landscape-anime-style-clouds-background-design-free-vector.jpg" id="2_cgok6"]
+[ext_resource type="PackedScene" uid="uid://dk68xj4gey58q" path="res://scenes/02_character/character/character.tscn" id="3_2drf8"]
+[ext_resource type="PackedScene" uid="uid://bxbskb8uvtbve" path="res://scenes/02_character/interpolatedCamera.tscn" id="4_n3kwr"]
+[ext_resource type="PackedScene" uid="uid://f7wd5hi7ipmf" path="res://scenes/07_interactive/lever/lever.tscn" id="5_ycluc"]
+[ext_resource type="PackedScene" uid="uid://bgoj1l6ojox5i" path="res://scenes/07_interactive/activePlatform/activePlatform.tscn" id="6_8duwf"]
+[ext_resource type="Texture2D" uid="uid://cmivlosjcnc0p" path="res://icon.svg" id="7_71o46"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bibbw"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ke0pq"]
+albedo_texture = ExtResource("1_ajji4")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_p12j5"]
+material = SubResource("StandardMaterial3D_ke0pq")
+size = Vector3(50, 1, 50)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_a2rts"]
+panorama = ExtResource("2_cgok6")
+
+[sub_resource type="Sky" id="Sky_da7px"]
+sky_material = SubResource("PanoramaSkyMaterial_a2rts")
+
+[sub_resource type="Environment" id="Environment_6is07"]
+background_mode = 2
+sky = SubResource("Sky_da7px")
+tonemap_mode = 2
+
+[node name="07InteractiveDevLvl" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.0749832, -0.863589, 0.49859, 0, 0.499998, 0.866027, -0.997185, 0.0649374, -0.0374914, 0, 0, 0)
+light_energy = 0.5
+shadow_enabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_bibbw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_p12j5")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6is07")
+
+[node name="character" parent="." instance=ExtResource("3_2drf8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.795788, 0)
+cameraNodePath = NodePath("../InterplatedCamera")
+
+[node name="InterplatedCamera" parent="." instance=ExtResource("4_n3kwr")]
+target = NodePath("../character")
+
+[node name="lever2" parent="." instance=ExtResource("5_ycluc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49739, -1)
+
+[node name="MovilPlatform" parent="." instance=ExtResource("6_8duwf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.99873, 1.5, -4)
+sync_to_physics = false
+triggerNode = NodePath("../lever2")
+targetAPath = NodePath("../Marker3D")
+targetBPath = NodePath("../Marker3D2")
+speed = 2.0
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.5, -4)
+
+[node name="Sprite3D" type="Sprite3D" parent="Marker3D"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+texture = ExtResource("7_71o46")
+
+[node name="Label3D" type="Label3D" parent="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.267588, 0)
+text = "Position A"
+
+[node name="Marker3D2" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.5, -4)
+
+[node name="Sprite3D" type="Sprite3D" parent="Marker3D2"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+texture = ExtResource("7_71o46")
+
+[node name="Label3D" type="Label3D" parent="Marker3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.267588, 0)
+text = "Position B"

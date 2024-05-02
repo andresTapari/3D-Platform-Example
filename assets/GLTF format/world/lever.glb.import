@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/lever.glb-08a3ad1547634c20d949e7b267c7a96d.sc
 
 [params]
 
-nodes/root_type=""
+nodes/root_type="Node3D"
 nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0

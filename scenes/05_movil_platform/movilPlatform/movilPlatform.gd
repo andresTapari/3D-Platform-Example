@@ -16,6 +16,11 @@ var targetToMove: Marker3D = null	# Posición actual a donde moverse
 var tolerance: float = 0.01			# Tolerancia final de movimiento
 
 var restTimer: Timer = null
+var isEnable: bool   = true:
+	set(value):
+		isEnable = value
+		if isEnable:
+			_on_restTimer_timeout()
 
 func _ready():
 	# Cargamos nodos
@@ -28,9 +33,13 @@ func _ready():
 	restTimer.one_shot  = true
 	restTimer.autostart = true
 	restTimer.timeout.connect(_on_restTimer_timeout)
-	restTimer.start()
+	if isEnable:
+		restTimer.start()
 
 func _physics_process(delta):
+	if not isEnable:
+		return
+
 	# Si targetToMove no es valido
 	if not targetToMove:
 		# sale

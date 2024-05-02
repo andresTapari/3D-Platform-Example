@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgoj1l6ojox5i"]
+
+[ext_resource type="Script" path="res://scenes/07_interactive/activePlatform/activePlatform.gd" id="1_ouaxo"]
+[ext_resource type="PackedScene" uid="uid://biyd6x403gvny" path="res://assets/GLTF format/platformer/platform-falling.glb" id="1_qwpj7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ch6hr"]
+size = Vector3(2.01122, 0.517212, 2.00618)
+
+[node name="MovilPlatform" type="AnimatableBody3D"]
+script = ExtResource("1_ouaxo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00136566, -0.255273, -0.00133514)
+shape = SubResource("BoxShape3D_ch6hr")
+
+[node name="platform-falling" parent="." instance=ExtResource("1_qwpj7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)

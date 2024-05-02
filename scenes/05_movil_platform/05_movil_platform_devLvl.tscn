@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d3ldrwc4svn25"]
+[gd_scene load_steps=15 format=3 uid="uid://d3ldrwc4svn25"]
 
 [ext_resource type="Texture2D" uid="uid://dehekveur1pju" path="res://assets/texture/Dark/texture_01.png" id="1_2n4jo"]
 [ext_resource type="Texture2D" uid="uid://yxtppdo00gff" path="res://assets/texture/sky/cartoon-sky-day-landscape-anime-style-clouds-background-design-free-vector.jpg" id="2_1ywfa"]
@@ -7,27 +7,28 @@
 [ext_resource type="PackedScene" uid="uid://ixh1j16u4u5a" path="res://scenes/05_movil_platform/movilPlatform/movilPlatform.tscn" id="5_u7c3e"]
 [ext_resource type="Texture2D" uid="uid://cmivlosjcnc0p" path="res://icon.svg" id="6_butuy"]
 [ext_resource type="PackedScene" uid="uid://btvbdcrnwitjc" path="res://scenes/06_saw/saw.tscn" id="7_ymbdx"]
+[ext_resource type="PackedScene" uid="uid://f7wd5hi7ipmf" path="res://scenes/07_interactive/lever/lever.tscn" id="8_x1mt5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ow4wf"]
 size = Vector3(50, 1, 50)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ke0pq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lagwu"]
 albedo_texture = ExtResource("1_2n4jo")
 uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_rd1k1"]
-material = SubResource("StandardMaterial3D_ke0pq")
+material = SubResource("StandardMaterial3D_lagwu")
 size = Vector3(50, 1, 50)
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_gwrq5"]
 panorama = ExtResource("2_1ywfa")
 
-[sub_resource type="Sky" id="Sky_da7px"]
+[sub_resource type="Sky" id="Sky_agf83"]
 sky_material = SubResource("PanoramaSkyMaterial_gwrq5")
 
 [sub_resource type="Environment" id="Environment_710f8"]
 background_mode = 2
-sky = SubResource("Sky_da7px")
+sky = SubResource("Sky_agf83")
 tonemap_mode = 2
 
 [node name="05MovilPlatformDevLvl" type="Node3D"]
@@ -83,6 +84,28 @@ texture = ExtResource("6_butuy")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.267588, 0)
 text = "Position B"
 
+[node name="Marker3D5" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.515538, -4)
+
+[node name="Sprite3D" type="Sprite3D" parent="Marker3D5"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+texture = ExtResource("6_butuy")
+
+[node name="Label3D" type="Label3D" parent="Marker3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.267588, 0)
+text = "Position A"
+
+[node name="Marker3D6" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.515538, -4)
+
+[node name="Sprite3D" type="Sprite3D" parent="Marker3D6"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+texture = ExtResource("6_butuy")
+
+[node name="Label3D" type="Label3D" parent="Marker3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.267588, 0)
+text = "Position B"
+
 [node name="AnimatableBody3D2" parent="." instance=ExtResource("5_u7c3e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.03696, -2)
 axis_lock_linear_y = false
@@ -114,7 +137,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.267588, 0)
 text = "Position B"
 
 [node name="AnimatableBody3D3" parent="." instance=ExtResource("7_ymbdx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.99985, -1.22525)
-targetAPath = NodePath("../Marker3D")
-targetBPath = NodePath("../Marker3D2")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.515388, -4.00505)
+targetAPath = NodePath("../Marker3D5")
+targetBPath = NodePath("../Marker3D6")
 speed = 2.0
+
+[node name="lever2" parent="." instance=ExtResource("8_x1mt5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.518059, -1)
