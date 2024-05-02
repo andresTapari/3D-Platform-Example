@@ -314,5 +314,8 @@ libraries = {
 unique_name_in_owner = true
 reset_on_save = false
 root_node = NodePath("%AnimationTree/..")
+libraries = {
+"": SubResource("AnimationLibrary_c5vro")
+}
 tree_root = SubResource("AnimationNodeStateMachine_hudpe")
 anim_player = NodePath("../AnimationPlayer")

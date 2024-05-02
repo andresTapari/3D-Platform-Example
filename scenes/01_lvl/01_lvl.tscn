@@ -1,7 +1,7 @@
 [gd_scene load_steps=33 format=3 uid="uid://cet6gl4pglpn5"]
 
 [ext_resource type="PackedScene" uid="uid://psp68qgcfey2" path="res://assets/GLTF format/world/flowersLow.glb" id="1_8jgq1"]
-[ext_resource type="Texture2D" uid="uid://yxtppdo00gff" path="res://assets/texture/sky/cartoon-sky-day-landscape-anime-style-clouds-background-design-free-vector.jpg" id="1_wftqi"]
+[ext_resource type="Texture2D" uid="uid://3u6fk4pnmx0q" path="res://assets/texture/sky/sky2.jpg" id="1_811n7"]
 [ext_resource type="PackedScene" uid="uid://dpw4loj811a4i" path="res://assets/GLTF format/world/mushrooms.glb" id="2_wwg8q"]
 [ext_resource type="PackedScene" uid="uid://drv4g4j5u6qv2" path="res://assets/GLTF format/world/plant.glb" id="3_rvin1"]
 [ext_resource type="MeshLibrary" uid="uid://d3wke0axdexut" path="res://assets/resources/tiles/3dTIles2.tres" id="4_nphdl"]
@@ -28,7 +28,7 @@
 [ext_resource type="Script" path="res://scenes/01_lvl/KillZone.gd" id="26_tu75a"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_155x5"]
-panorama = ExtResource("1_wftqi")
+panorama = ExtResource("1_811n7")
 
 [sub_resource type="Sky" id="Sky_lankh"]
 sky_material = SubResource("PanoramaSkyMaterial_155x5")
