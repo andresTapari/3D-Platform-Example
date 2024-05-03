@@ -49,7 +49,7 @@ mesh = SubResource("BoxMesh_p12j5")
 environment = SubResource("Environment_6is07")
 
 [node name="character" parent="." instance=ExtResource("3_2drf8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.795788, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.498514, 0)
 cameraNodePath = NodePath("../InterplatedCamera")
 
 [node name="InterplatedCamera" parent="." instance=ExtResource("4_n3kwr")]
