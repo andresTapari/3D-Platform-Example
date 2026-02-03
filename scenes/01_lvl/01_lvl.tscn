@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cet6gl4pglpn5"]
+[gd_scene format=3 uid="uid://cet6gl4pglpn5"]
 
 [ext_resource type="PackedScene" uid="uid://psp68qgcfey2" path="res://assets/GLTF format/world/flowersLow.glb" id="1_8jgq1"]
 [ext_resource type="Texture2D" uid="uid://c3vbut4sh10mx" path="res://assets/texture/sky/sky_.svg" id="1_o1wth"]
